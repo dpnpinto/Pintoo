@@ -3,17 +3,17 @@ Gentoo a la Pinto
 Yes let's create an easy install of Gentoo
 PintoGentoo
 Steps:
-1- Descarregar do gentoo.org - Minimal Gentoo for AMD64
-2- Arrancar com o "Live CD"
-3- Escolher o teclado - pt
-4- Mudar o tamanho da fonte - setfont -d
-5- Mudar a password para a root - passwd root
-6- Arrancar com o servidor ssh - /etc/init.d/sshd start
-7- Ver o ip - ip a
-8- efetuar uma sessão remota - ssh root@ip
-9- Criar partições do tipo GPT
-10 - Utilizando cfdisk, primeira 1G tipo EFI System
-11 - Segunda 4G tipo swap
+*1- Descarregar do gentoo.org - Minimal Gentoo for AMD64
+*2- Arrancar com o "Live CD"
+*3- Escolher o teclado - pt
+*4- Mudar o tamanho da fonte - setfont -d
+*5- Mudar a password para a root - passwd root
+*6- Arrancar com o servidor ssh - /etc/init.d/sshd start
+*7- Ver o ip - ip a
+*8- efetuar uma sessão remota - ssh root@ip
+*9- Criar partições do tipo GPT
+*10 - Utilizando cfdisk, primeira 1G tipo EFI System
+*11 - Segunda 4G tipo swap
 12 - Terceira restante espaço deixar o tipo em Linux FileSystem
 13 - formatar a partição 1 como fat32 - mkfs.vfat -F32 /dev/sda1
 14 - formatar a partição 2 como swap - mkswap /dev/sda2
