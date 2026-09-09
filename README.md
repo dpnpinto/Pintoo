@@ -27,3 +27,4 @@ Steps:
 * 20 - extrair a imagem com os atributos preservados - tar -xpvf file.tar.xz --xattrs-include=´.´ --numeric-owner
 * 21 - alterar o make.conf para instalar binários- cd etc/portage alteral make.conf
 * 22 - alterar o binrepos.conf - cd etc/portage/binrepos.conf alterar o gentoo.conf
+* 23 - verificar o PGP - getuto
