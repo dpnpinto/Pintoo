@@ -24,4 +24,4 @@ Steps:
 * 18 - ir para dentro do sistema - cd /mnt/gentoo
 * 19 - descarregar o ficheiro tar com o sistema - links https://www.gentoo.org/downloads/mirrors/
 * wget https://distfiles.gentoo.org/releases/amd64/autobuilds/20260906T170102Z/stage3-amd64-openrc-20260906T170102Z.tar.xz
-20 - extrair a imagem com os atributos preservados - tar -xpvf file.tar.xz --xattrs-include=´.´ --numeric-owner
+* 20 - extrair a imagem com os atributos preservados - tar -xpvf file.tar.xz --xattrs-include=´.´ --numeric-owner
