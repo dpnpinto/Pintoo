@@ -25,3 +25,5 @@ Steps:
 * 19 - descarregar o ficheiro tar com o sistema - links https://www.gentoo.org/downloads/mirrors/
 * wget https://distfiles.gentoo.org/releases/amd64/autobuilds/20260906T170102Z/stage3-amd64-openrc-20260906T170102Z.tar.xz
 * 20 - extrair a imagem com os atributos preservados - tar -xpvf file.tar.xz --xattrs-include=´.´ --numeric-owner
+* 21 - alterar o make.conf para instalar binários- cd etc/portage alteral make.conf
+* 22 - alterar o binrepos.conf - cd etc/portage/binrepos.conf alterar o gentoo.conf
