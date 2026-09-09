@@ -31,4 +31,11 @@ Steps:
 * 24 - voltar para a raiz e montar a partição EFI - cd e mount -m /dev/sda1 /mnt/gentoo/efi
 * 25 - gerar o ficheiro fstab - genfstab -U /mnt/gentoo/ > /mnt/gentoo/etc/fstab
 * 26 - Copiar as referencias de DNS para o nosso sistema - cp --dereference /etc/resolv.conf /mnt/gentoo/etc
-* 27 - 
+* 27 - Ir para dentro do sistema - arch-chroot /mnt/gentoo
+* 28 - Source o perfil - source /etc/profile
+* 29 - Ir para a pasta do utilizador - cd
+* 30 - Sincronizar o repositorio - emerge-webrsync
+* 31 - Vamos ver para selecionar um perfil - eselect profile list | less
+* 32 - vamos selecionar um perfil - eselect profile set 1
+* 33 - vamos finalmente instalar o Gentoo - emerge --ask --verbose --update --deep --changed-use --getbinpkg @world
+* 34 - 
