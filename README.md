@@ -28,3 +28,7 @@ Steps:
 * 21 - alterar o make.conf para instalar binários- cd etc/portage alteral make.conf
 * 22 - alterar o binrepos.conf - cd etc/portage/binrepos.conf alterar o gentoo.conf
 * 23 - verificar o PGP - getuto
+* 24 - voltar para a raiz e montar a partição EFI - cd e mount -m /dev/sda1 /mnt/gentoo/efi
+* 25 - gerar o ficheiro fstab - genfstab -U /mnt/gentoo/ > /mnt/gentoo/etc/fstab
+* 26 - Copiar as referencias de DNS para o nosso sistema - cp --dereference /etc/resolv.conf /mnt/gentoo/etc
+* 27 - 
