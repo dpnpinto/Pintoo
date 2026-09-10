@@ -45,4 +45,7 @@ Steps:
 * 38 - vamos atualziar a variavel do perfil - eselect locale list e eselect locale set 4
 * 39 - vamos atualizar o perfil - env-update && source /etc/profile
 * 40 - marcar a prompt para sabermos que estamos em chroot - export PS1="(chroot) ${PS1}"
-* 41 - 
+* 41 - instalar o firmware - emerge --ask sys-kernel/linux-firmware sys-firmware/sof-firmware
+* 42 - criar e editar os pacotes que são relacionados com o sistema -  vim /etc/portage/package.use/system
+* 43 - Adicionar o software - sys-kernel/installkernel dracut efistub
+* 44 - para que o efistub funcionar - 
