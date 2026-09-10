@@ -41,5 +41,8 @@ Steps:
 * 34 - vamos defenir a zona - ln -sf /usr/share/zoneinfo/Atlantic/Azores /etc/localtime
 * 35 - instalar um editor de texto em condições - emerge app-editors/vim
 * 36 - vamos gerar o local, primeiro editar e tirar o # do local para mim pt_PT - vim /etc/locale.gen
-* 37 - 
-* 
+* 37 - vamos gerar O locale - locale-gen
+* 38 - vamos atualziar a variavel do perfil - eselect locale list e eselect locale set 4
+* 39 - vamos atualizar o perfil - env-update && source /etc/profile
+* 40 - marcar a prompt para sabermos que estamos em chroot - export PS1="(chroot) ${PS1}"
+* 41 - 
