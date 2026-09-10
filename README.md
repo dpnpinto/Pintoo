@@ -38,4 +38,8 @@ Steps:
 * 31 - Vamos ver para selecionar um perfil - eselect profile list | less
 * 32 - vamos selecionar um perfil - eselect profile set 1
 * 33 - vamos finalmente instalar o Gentoo - emerge --ask --verbose --update --deep --changed-use --getbinpkg @world
-* 34 - 
+* 34 - vamos defenir a zona - ln -sf /usr/share/zoneinfo/Atlantic/Azores /etc/localtime
+* 35 - instalar um editor de texto em condições - emerge app-editors/vim
+* 36 - vamos gerar o local, primeiro editar e tirar o # do local para mim pt_PT - vim /etc/locale.gen
+* 37 - 
+* 
