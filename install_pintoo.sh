@@ -81,7 +81,7 @@ emerge-webrsync
 eselect profile set 1 # default/linux/amd64/23.0
 
 echo "=== 11. Atualizando @world (Via binários) ==="
-emerge --update --deep --newuse --getbinpkg @world
+emerge --ask --verbose --update --deep --changeduse --getbinpkg @world
 
 echo "=== 12. Configurando Localidade ==="
 ln -sf /usr/share/zoneinfo/Atlantic/Azores /etc/localtime
