@@ -94,7 +94,7 @@ eselect locale set 4
 env-update && source /etc/profile
 
 echo "=== 13. Firmware e Kernel Binário ==="
-emerge sys-kernel/linux-firmware sys-firmware/sof-firmware
+emerge --ask sys-kernel/linux-firmware sys-firmware/sof-firmware
 
 mkdir -p /etc/portage/package.use
 echo "sys-kernel/installkernel dracut efi-stub" > /etc/portage/package.use/system
