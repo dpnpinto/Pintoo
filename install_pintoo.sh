@@ -34,15 +34,24 @@ tar xpvf stage3.tar.xz --xattrs-include='*.*' --numeric-owner
 
 echo "=== 5. Configurando make.conf (Binary Packages V3) ==="
 cat << 'EOF' > /mnt/gentoo/etc/portage/make.conf
-COMMON_FLAGS="-O2 -pipe -march=x86-64-v3"
+# These settings were set by the catalyst build script that automatically
+# built this stage.
+# Please consult /usr/share/portage/config/make.conf.example for a more
+# detailed example.
+COMMON_FLAGS="-O2 -pipe -march=x86-64-v3" # Architecture to use
+MAKEOPTS="-j2" # cpus to use
+FEATURES="getbinpkg binpkg-request-signature" # mostrly use bin pakages with signatures
 CFLAGS="${COMMON_FLAGS}"
 CXXFLAGS="${COMMON_FLAGS}"
 FCFLAGS="${COMMON_FLAGS}"
 FFLAGS="${COMMON_FLAGS}"
-MAKEOPTS="-j2" #Quanto cores utilizar
-FEATURES="getbinpkg binpkg-request-signature"
-USE="-* dist-kernel"
-ACCEPT_LICENSE="-* @FREE @BINARY-REDISTRIBUTABLE"
+
+# NOTE: This stage was built with the bindist USE flag enabled
+USE="dist-kernel" # use a distributed precompiled kernel
+ACCEPT_LICENSE="-* @FREE @BINARY @BINARY-REDISTRIBUTABLE" #Only Free redistributable software
+# This sets the language of build output to English.
+# Please keep this setting intact when reporting bugs.
+LC_MESSAGES=C.UTF-8
 EOF
 
 echo "=== 6. Configurando binrepos ==="
