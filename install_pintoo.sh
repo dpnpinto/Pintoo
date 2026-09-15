@@ -85,7 +85,7 @@ echo "=== 9. Criando script de instalação em modo chroot ==="
 cat << 'EOF' > /mnt/gentoo/chroot_install.sh
 #!/bin/bash
 source /etc/profile # Carrega o perfil para o utilizador 
-export PS1="(chroot) ${PS1}" # Muda a prompt
+export PS1="(Pintoo) ${PS1}" # Muda a prompt
 getuto # Atualiza a confiança, Gentoo"TuTo" Trust Tool
 
 echo "=== 10. atualizar o repositório local e selecionar perfil base ==="
