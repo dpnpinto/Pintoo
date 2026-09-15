@@ -61,6 +61,8 @@ cat << 'EOF' > /mnt/gentoo/etc/portage/binrepos.conf/gentoo.conf
 [gentoo-x86-64-v3]
 priority = 9999
 sync-uri = https://distfiles.gentoo.org/releases/amd64/binpackages/x86-64-v3/
+location = /var/cache/binhost/gentoo-x86-64-v3
+verify-signature = true
 EOF
 
 echo "=== 7. Gerando fstab ==="
