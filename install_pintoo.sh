@@ -58,9 +58,19 @@ echo "=== 6. Configurando binrepos ==="
 mkdir -p /mnt/gentoo/etc/portage/binrepos.conf
 cp /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf
 cat << 'EOF' > /mnt/gentoo/etc/portage/binrepos.conf/gentoo.conf
+# These settings were set by the catalyst build script that automatically
+# built this stage.
+# Please consider using a local mirror.
+
+[gentoo]
+priority = 1
+sync-uri = https://distfiles.gentoo.org/releases/amd64/binpackages/23.0/x86-64
+location = /var/cache/binhost/gentoo
+verify-signature = true
+
 [gentoo-x86-64-v3]
 priority = 9999
-sync-uri = https://distfiles.gentoo.org/releases/amd64/binpackages/x86-64-v3/
+sync-uri = https://distfiles.gentoo.org/releases/amd64/binpackages/23.0/x86-64-v3
 location = /var/cache/binhost/gentoo-x86-64-v3
 verify-signature = true
 EOF
