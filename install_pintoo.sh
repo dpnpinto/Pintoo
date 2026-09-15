@@ -48,7 +48,7 @@ FFLAGS="${COMMON_FLAGS}"
 
 # NOTE: This stage was built with the bindist USE flag enabled
 USE="dist-kernel" # use a distributed precompiled kernel
-ACCEPT_LICENSE="-* @FREE @BINARY @BINARY-REDISTRIBUTABLE" #Only Free redistributable software
+ACCEPT_LICENSE="-* @FREE @BINARY-REDISTRIBUTABLE" #Only Free redistributable software
 # This sets the language of build output to English.
 # Please keep this setting intact when reporting bugs.
 LC_MESSAGES=C.UTF-8
