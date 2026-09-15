@@ -99,7 +99,7 @@ echo "=== 12. Configurando Localidade ==="
 ln -sf /usr/share/zoneinfo/Atlantic/Azores /etc/localtime
 emerge app-editors/vim # instalar o vim
 
-sed -i 's/# pt_PT/pt_PT' /etc/locale.gen
+sed -i 's/# pt_PT/pt_PT/' /etc/locale.gen
 locale-gen
 eselect locale set 4 
 
