@@ -92,8 +92,8 @@ echo "=== 10. atualizar o repositório local e selecionar perfil base ==="
 emerge-webrsync
 eselect profile set 1 # /default/linux/amd64/23.0 (stable) *
 
-echo "=== 11. Finalmente instalar o Gentoo @world (Via binários) ==="
-emerge --ask --verbose --update --deep --changed-use --getbinpkg @world
+echo "=== 11. Finalmente instalar o Gentoo @world (Via binários, como o pacstrap no Arch Linux) ==="
+emerge --verbose --update --deep --changed-use --getbinpkg @world
 
 echo "=== 12. Configurando Localidade ==="
 ln -sf /usr/share/zoneinfo/Atlantic/Azores /etc/localtime
