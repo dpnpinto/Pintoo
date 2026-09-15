@@ -75,10 +75,10 @@ location = /var/cache/binhost/gentoo-x86-64-v3
 verify-signature = true
 EOF
 
-echo "=== 7. Gerando fstab ==="
+echo "=== 7. Gerar tabela de arranque do file system  fstab ==="
 genfstab -U /mnt/gentoo >> /mnt/gentoo/etc/fstab
 
-echo "=== 8. Copiando resolv.conf ==="
+echo "=== 8. Copiar ficheiro de resolução de nomes (DNS) para o Pintoo resolv.conf ==="
 cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
 
 echo "=== 9. Criando script de chroot ==="
