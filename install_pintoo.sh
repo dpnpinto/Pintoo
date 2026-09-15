@@ -97,9 +97,9 @@ emerge --verbose --update --deep --changed-use --getbinpkg @world
 
 echo "=== 12. Configurando Localidade ==="
 ln -sf /usr/share/zoneinfo/Atlantic/Azores /etc/localtime
-emerge app-editors/vim
+emerge app-editors/vim # instalar o vim
 
-sed -i 's/#pt_PT.UTF-8 UTF-8/pt_PT.UTF-8 UTF-8/' /etc/locale.gen
+sed -i 's/# pt_PT/pt_PT' /etc/locale.gen
 locale-gen
 eselect locale set 4 
 
