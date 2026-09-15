@@ -81,14 +81,13 @@ genfstab -U /mnt/gentoo >> /mnt/gentoo/etc/fstab
 echo "=== 8. Copiar ficheiro de resolução de nomes (DNS) resolv.conf ==="
 cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
 
-echo "=== 9. Criando script de chroot ==="
-# Criando script interior para facilitar execução
+echo "=== 9. Criando script de instalação em modo chroot ==="
 cat << 'EOF' > /mnt/gentoo/chroot_install.sh
 #!/bin/bash
 source /etc/profile
 export PS1="(chroot) ${PS1}"
 
-echo "=== 10. Webrsync e Selecionando Profile Base ==="
+echo "=== 10. atualizar o repositório local e selecionar perfil base ==="
 emerge-webrsync
 eselect profile set 1 # default/linux/amd64/23.0
 
