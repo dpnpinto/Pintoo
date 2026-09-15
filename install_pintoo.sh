@@ -109,7 +109,7 @@ echo "=== 13. Firmware e Kernel Binário ==="
 emerge --ask=no sys-kernel/linux-firmware sys-firmware/sof-firmware
 
 mkdir -p /etc/portage/package.use
-echo "sys-kernel/installkernel dracut efi-stub" > /etc/portage/package.use/system
+echo "sys-kernel/installkernel dracut efistub" > /etc/portage/package.use/system
 emerge sys-kernel/gentoo-kernel-bin
 
 echo "=== 14. Configuração EFI STUB (ext4) ==="
