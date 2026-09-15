@@ -78,7 +78,7 @@ EOF
 echo "=== 7. Gerar tabela de arranque do file system  fstab ==="
 genfstab -U /mnt/gentoo >> /mnt/gentoo/etc/fstab
 
-echo "=== 8. Copiar ficheiro de resolução de nomes (DNS) para o Pintoo resolv.conf ==="
+echo "=== 8. Copiar ficheiro de resolução de nomes (DNS) resolv.conf ==="
 cp --dereference /etc/resolv.conf /mnt/gentoo/etc/
 
 echo "=== 9. Criando script de chroot ==="
