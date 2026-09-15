@@ -116,7 +116,7 @@ echo "=== 14. Configuração EFI STUB (ext4) ==="
 ROOT_UUID=$(findmnt -no UUID /)
 mkdir -p /efi/EFI/Gentoo
 # Utilizando ext4:
-echo "KERNEL_CONFIG=\"%entry_id %linux_name linux %kernel_version ; root=UUID=${ROOT_UUID} rootfstype=ext4 rw\"" > /etc/default/uefi-mkconfig
+echo "KERNEL_CONFIG=\"%entry_id %linux_name Linux %kernel_version ; root=UUID=${ROOT_UUID} rootfstype=ext4 rw\"" > /etc/default/uefi-mkconfig
 
 echo "=== 15. Hostname e Rede ==="
 echo "Pintoo" > /etc/hostname
