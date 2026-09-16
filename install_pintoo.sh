@@ -38,8 +38,9 @@ cat << 'EOF' > /mnt/gentoo/etc/portage/make.conf
 # built this stage.
 # Please consult /usr/share/portage/config/make.conf.example for a more
 # detailed example.
-COMMON_FLAGS="-O2 -pipe -march=x86-64-v3" # Architecture to use
-MAKEOPTS="-j2" # cpus to use
+COMMON_FLAGS="-O2 -pipe -march=x86-64-v3" # Architecture to usa
+EMERGE_DEFAULT_OPTS="--jobs=4 --load-average=4.0"
+MAKEOPTS="-j4 -l4" # cpus to use
 FEATURES="getbinpkg binpkg-request-signature" # mostrly use bin pakages with signatures
 CFLAGS="${COMMON_FLAGS}"
 CXXFLAGS="${COMMON_FLAGS}"
