@@ -144,6 +144,11 @@ emerge app-admin/sysklogd net-misc/chrony
 rc-update add sysklogd default
 rc-update add chronyd default
 
+echo "=== 18. user services ==="
+
+rc-update add dbus default
+rc-update add elogind default
+
 echo "Instalação Base concluída."
 EOF
 
