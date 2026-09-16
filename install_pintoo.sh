@@ -109,14 +109,16 @@ echo "=== 13. Firmware e Kernel Binário ==="
 emerge --ask=no sys-kernel/linux-firmware sys-firmware/sof-firmware
 
 mkdir -p /etc/portage/package.use
-echo "sys-kernel/installkernel dracut efistub" > /etc/portage/package.use/system
+echo "sys-kernel/installkernel dracut grub" > /etc/portage/package.use/system
 emerge sys-kernel/gentoo-kernel-bin
 
-echo "=== 14. Configuração EFI STUB (ext4) ==="
-ROOT_UUID=$(findmnt -no UUID /)
-mkdir -p /efi/EFI/Gentoo
-# Utilizando ext4:
-echo "KERNEL_CONFIG=\"%entry_id %linux_name Linux %kernel_version ; root=UUID=${ROOT_UUID} rootfstype=ext4 rw\"" > /etc/default/uefi-mkconfig
+echo "=== 14. Configuração GRUB (Bootloader) ==="
+# Instalando o pacote do GRUB e efibootmgr
+emerge sys-boot/grub sys-boot/efibootmgr
+
+# Instalando e gerando o config do GRUB na partição /efi
+grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Gentoo
+grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "=== 15. Hostname e Rede ==="
 echo "Pintoo" > /etc/hostname
