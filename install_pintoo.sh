@@ -122,14 +122,18 @@ grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Gentoo
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "=== 15. Hostname e Rede ==="
+
 echo "Pintoo" > /etc/hostname
 cat << 'HOSTS' >> /etc/hosts
 127.0.0.1 Pintoo localhost
 ::1       Pintoo localhost
 HOSTS
 
-emerge net-misc/networkmanager
-rc-update add NetworkManager default
+emerge net-misc/dhcpcd # utilizar dhcpcd
+rc-update add dhcpcd default
+
+#emerge net-misc/networkmanager # descomentar se preferir networkmanager
+#rc-update add NetworkManager default
 
 echo "=== 16. Utilizadores (Senha padrão: password) ==="
 echo "root:password" | chpasswd
