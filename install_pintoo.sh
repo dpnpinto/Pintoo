@@ -148,9 +148,13 @@ emerge app-admin/sysklogd net-misc/chrony
 rc-update add sysklogd default
 rc-update add chronyd default
 
-echo "=== 18. Configuração rc.conf ==="
+echo "=== 18. Otimização do OpenRC ==="
 # remover autostart de serviços utilizadores start https://wiki.gentoo.org/wiki/OpenRC
 echo 'rc_autostart_user="NO"' >> /etc/rc.conf 
+
+# comentar o inicio do tty3 e tty4 
+sed -i 's/^c3:/#c3:/' /etc/inittab
+sed -i 's/^c4:/#c4:/' /etc/inittab
 
 echo "Instalação Base concluída (com GRUB e ext4)!"
 EOF
