@@ -132,8 +132,8 @@ HOSTS
 emerge net-misc/dhcpcd # utilizar dhcpcd
 rc-update add dhcpcd default
 
-#emerge net-misc/networkmanager # descomentar se preferir networkmanager
-#rc-update add NetworkManager default
+# emerge net-misc/networkmanager # descomentar se preferir networkmanager
+# rc-update add NetworkManager default
 
 echo "=== 16. Utilizadores (Senha padrão: password) ==="
 echo "root:password" | chpasswd
@@ -148,7 +148,11 @@ emerge app-admin/sysklogd net-misc/chrony
 rc-update add sysklogd default
 rc-update add chronyd default
 
-echo "Instalação Base concluída."
+echo "=== 18. Configuração rc.conf ==="
+# remover autostart de serviços utilizadores start https://wiki.gentoo.org/wiki/OpenRC
+echo 'rc_autostart_user="NO"' >> /etc/rc.conf 
+
+echo "Instalação Base concluída (com GRUB e ext4)!"
 EOF
 
 chmod +x /mnt/gentoo/chroot_install.sh
