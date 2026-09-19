@@ -23,7 +23,7 @@ mount /dev/vda1 /mnt/gentoo/efi
 echo "=== 3. Sincronizando relógio ==="
 chronyd -q
 
-echo "=== 4. Baixando e extraindo Stage3 (AMD64 OpenRC) ==="
+echo "=== 4. Descarregando e extraindo Stage3 (AMD64 OpenRC) ==="
 cd /mnt/gentoo
 # O link do Stage3 genérico
 STAGE3_URL="https://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64-openrc/stage3-amd64-openrc-20260906T170102Z.tar.xz"
@@ -107,7 +107,7 @@ eselect locale set 4
 env-update && source /etc/profile
 
 echo "=== 13. Firmware e Kernel Binário ==="
-emerge --ask=no sys-kernel/linux-firmware sys-firmware/sof-firmware
+emerge --ask=n sys-kernel/linux-firmware sys-firmware/sof-firmware
 
 mkdir -p /etc/portage/package.use
 echo "sys-kernel/installkernel dracut grub" > /etc/portage/package.use/system
