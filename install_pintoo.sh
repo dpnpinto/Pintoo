@@ -156,7 +156,7 @@ echo "=== 18. Otimização do OpenRC ==="
 # remover autostart dos serviços dos utilizadores https://wiki.gentoo.org/wiki/OpenRC
 echo 'rc_autostart_user="NO"' >> /etc/rc.conf 
 
-# comentar para não dar inicio ao tty3 e tty4 
+# comentar no inittab para não dar inicio ao tty3 e tty4 
 sed -i 's/^c3:/#c3:/' /etc/inittab
 sed -i 's/^c4:/#c4:/' /etc/inittab
 
