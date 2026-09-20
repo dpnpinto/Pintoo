@@ -6,7 +6,7 @@ echo "=== 0. Iniciar ==="
 
 set -e # Exit se erro
 umount -a # desmontar tudo
-sawpoff -a # swapoff a tudo
+swapoff -a # swapoff a tudo
 
 echo "=== 1. Preparando discos ==="
 # /dev/vda1: EFI (1GB)
