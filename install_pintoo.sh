@@ -3,6 +3,8 @@
 # ATENÇÃO: Este script serve como referência e tem /dev/vda como base.
 
 set -e # Exit se erro
+umount -a # desmontar tudo
+swapoff -a # swapoff a tudo
 
 echo "=== 1. Preparando discos ==="
 # /dev/vda1: EFI (1GB)
