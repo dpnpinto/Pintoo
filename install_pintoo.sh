@@ -166,4 +166,4 @@ EOF
 chmod +x /mnt/gentoo/chroot_install.sh
 
 echo "Script finalizado! Agora pode executar o chroot:"
-echo "arch-chroot /mnt/gentoo /chroot_install.sh"
+echo "arch-chroot /mnt/gentoo && /chroot_install.sh"
