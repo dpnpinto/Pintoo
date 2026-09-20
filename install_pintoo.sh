@@ -2,6 +2,8 @@
 # Instalação do Pintoo (Gentoo a la Pinto)
 # ATENÇÃO: Este script serve como referência e tem /dev/vda como base.
 
+echo "=== 0. Iniciar ==="
+
 set -e # Exit se erro
 umount -a # desmontar tudo
 swapoff -a # swapoff a tudo
