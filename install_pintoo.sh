@@ -27,7 +27,7 @@ chronyd -q
 echo "=== 4. Descarregando e extraindo Stage3 (AMD64 OpenRC) ==="
 cd /mnt/gentoo
 # O link do Stage3 genérico
-STAGE3_URL="https://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64-openrc/stage3-amd64-openrc-20260906T170102Z.tar.xz"
+STAGE3_URL="https://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64-openrc/stage3-amd64-openrc-20260920T170055Z.tar.xz"
 wget $STAGE3_URL -O stage3.tar.xz
 
 # Extração para manter dono e xattrs
