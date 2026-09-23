@@ -157,6 +157,9 @@ echo 'rc_autostart_user="NO"' >> /etc/rc.conf
 sed -i 's/^c3:/#c3:/' /etc/inittab
 sed -i 's/^c4:/#c4:/' /etc/inittab
 
+# install fastfetch and htop
+emerge --ask sys-process/htop app-misc/fastfetch
+
 echo "Instalação Base concluída (com GRUB e ext4)!"
 EOF
 
