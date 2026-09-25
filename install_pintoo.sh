@@ -33,7 +33,7 @@ wget $STAGE3_URL -O stage3.tar.xz
 # Extração para manter dono e xattrs
 tar xpvf stage3.tar.xz --xattrs-include='*.*' --numeric-owner
 
-echo "=== 5. Configurando make.conf (Binary Packages V3) ==="
+echo "=== 5. Configurar o Portage make.conf (Binary Packages V3) ==="
 cat << 'EOF' > /mnt/gentoo/etc/portage/make.conf
 # These settings were set by the catalyst build script that automatically
 # built this stage.
