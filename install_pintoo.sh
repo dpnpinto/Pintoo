@@ -162,7 +162,7 @@ sed -i 's/^c4:/#c6:/' /etc/inittab
 
 echo "=== 19. Software fundamental ;) ==="
 # instalar fastfetch, o htop e o vim
-emerge sys-process/htop app-misc/fastfetch app-editors/vim # instalar o htop fastfetch e o vim
+emerge sys-process/htop app-misc/fastfetch app-editors/vim
 
 echo "=== Instalação Base concluída com binários(com GRUB e ext4)! ==="
 EOF
