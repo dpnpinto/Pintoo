@@ -120,7 +120,7 @@ echo "=== 14. Configuração GRUB (Bootloader) ==="
 emerge sys-boot/grub sys-boot/efibootmgr
 
 # Instalando e gerando o config do GRUB na partição /efi
-grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Gentoo
+grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=Pintoo
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "=== 15. Hostname e Rede ==="
@@ -138,9 +138,9 @@ rc-update add dhcpcd default
 # rc-update add NetworkManager default
 
 echo "=== 16. Utilizadores (Senha padrão: password) ==="
-echo "root:password" | chpasswd
+echo "root:pintoo" | chpasswd
 useradd -m -G wheel,audio,video -s /bin/bash pintoo
-echo "pintoo:password" | chpasswd
+echo "pintoo:pintoo" | chpasswd
 
 emerge app-admin/doas
 echo "permit persist :wheel" > /etc/doas.conf
