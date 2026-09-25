@@ -157,8 +157,8 @@ echo 'rc_autostart_user="NO"' >> /etc/rc.conf
 # comentar no inittab para não dar inicio ao tty3 a tty6 
 sed -i 's/^c3:/#c3:/' /etc/inittab
 sed -i 's/^c4:/#c4:/' /etc/inittab
-sed -i 's/^c3:/#c5:/' /etc/inittab
-sed -i 's/^c4:/#c6:/' /etc/inittab
+sed -i 's/^c5:/#c5:/' /etc/inittab
+sed -i 's/^c6:/#c6:/' /etc/inittab
 
 echo "=== 19. Software fundamental ;) ==="
 # instalar fastfetch, o htop e o vim
