@@ -161,7 +161,7 @@ sed -i 's/^c3:/#c5:/' /etc/inittab
 sed -i 's/^c4:/#c6:/' /etc/inittab
 
 echo "=== 19. Software fundamental ;) ==="
-# instalar fastfetch o htop e o vim
+# instalar fastfetch, o htop e o vim
 emerge sys-process/htop app-misc/fastfetch app-editors/vim # instalar o htop fastfetch e o vim
 
 echo "=== Instalação Base concluída com binários(com GRUB e ext4)! ==="
