@@ -99,7 +99,6 @@ emerge --verbose --update --deep --changed-use --getbinpkg @world
 
 echo "=== 12. Configurando Localidade ==="
 ln -sf /usr/share/zoneinfo/Atlantic/Azores /etc/localtime
-emerge app-editors/vim # instalar o vim
 
 sed -i 's/# pt_PT/pt_PT/' /etc/locale.gen
 locale-gen
@@ -112,6 +111,8 @@ emerge --ask=n sys-kernel/linux-firmware sys-firmware/sof-firmware
 
 mkdir -p /etc/portage/package.use
 echo "sys-kernel/installkernel dracut grub" > /etc/portage/package.use/system
+echo "sys-kernel/gentoo-kernel-bin ~amd64" > /etc/portage/package.accept_keywords/kernel
+echo "virtual/dist-kernel ~amd64" >> /etc/portage/package.accept_keywords/kernel
 emerge sys-kernel/gentoo-kernel-bin
 
 echo "=== 14. Configuração GRUB (Bootloader) ==="
@@ -159,13 +160,14 @@ sed -i 's/^c4:/#c4:/' /etc/inittab
 sed -i 's/^c3:/#c5:/' /etc/inittab
 sed -i 's/^c4:/#c6:/' /etc/inittab
 
-# install fastfetch and htop
-emerge --ask sys-process/htop app-misc/fastfetch
+echo "=== 19. Software fundamental ;) ==="
+# instalar fastfetch o htop e o vim
+emerge sys-process/htop app-misc/fastfetch app-editors/vim # instalar o htop fastfetch e o vim
 
-echo "Instalação Base concluída (com GRUB e ext4)!"
+echo "=== Instalação Base concluída com binários(com GRUB e ext4)! ==="
 EOF
 
 chmod +x /mnt/gentoo/chroot_install.sh
 
 echo "Script finalizado! Agora pode executar o chroot:"
-echo "arch-chroot /mnt/gentoo && /chroot_install.sh"
+echo "arch-chroot /mnt/gentoo /chroot_install.sh"
