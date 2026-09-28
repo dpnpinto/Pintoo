@@ -44,12 +44,19 @@ Steps:
 * 37 - vamos gerar O locale - locale-gen
 * 38 - vamos atualziar a variavel do perfil - eselect locale list e eselect locale set 4
 * 39 - vamos atualizar o perfil - env-update && source /etc/profile
-* 40 - marcar a prompt para sabermos que estamos em chroot - export PS1="(chroot) ${PS1}"
+* 40 - marcar a prompt para sabermos que estamos em chroot - export PS1="(Pintoo) ${PS1}"
 * 41 - instalar o firmware - emerge --ask sys-kernel/linux-firmware sys-firmware/sof-firmware
-* 42 - criar e editar os pacotes que são relacionados com o sistema -  vim /etc/portage/package.use/system
-* 43 - Adicionar o software - sys-kernel/installkernel dracut efistub
-* 44 - para que o efistub funcionar - 
+* 42 - criar os pacotes que são relacionados com o sistema -  vim /etc/portage/package.use/system
+* 43 - adicionar o software - sys-kernel/installkernel dracut efistub
+* 44 - GRUB 
 ... 
 ...
 ...
-* XX - O descrito mas agora em bash - wget https://raw.github.com/dpnpinto/Pintoo/main/install_pintoo.sh 
+* XX - O descrito mas agora em bash - wget https://raw.github.com/dpnpinto/Pintoo/main/install_pintoo.sh
+
+### References:
+
+* https://wiki.gentoo.org/
+* https://wiki.gentoo.org/wiki/Handbook:Main_Page
+* https://wiki.gentoo.org/wiki/Gentoo_Binary_Host_Quickstart
+
