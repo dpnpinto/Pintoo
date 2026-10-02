@@ -3,13 +3,13 @@ Yes let's create an easy install of Gentoo
 
 ## [Just with 19 steps](https://github.com/dpnpinto/Pintoo/blob/main/install_pintoo.sh)
 
-* Initialize and Prepare Disks: Enables exit-on-error and partitions the /dev/vda drive into three sections: EFI (1GB, FAT32), Swap (4GB), and Linux Root (Remaining space, EXT4).
+* Initialize and Prepare Disks: Enables exit-on-error and partitions the /dev/vda(change this if your device is another) drive into three sections: EFI (1GB, FAT32), Swap (4GB), and Linux Root (Remaining space, EXT4).
 
 * Mount Partitions: Mounts the newly created EXT4 root file system to /mnt/gentoo and the FAT32 EFI partition to /mnt/gentoo/efi.
 
 * Synchronize the Clock: Quickly synchronizes the system clock using chronyd to prevent SSL/download errors.
 
-* Download and Extract Stage3: Downloads the Gentoo Stage3 tarball (AMD64 with OpenRC) and extracts it into the root mount, preserving file owners and extended attributes.
+* Download and Extract the Stage3: Downloads the Gentoo Stage3 tarball (AMD64 with OpenRC) and extracts it into the root mount, preserving file owners and extended attributes.
 
 * Configure Portage (make.conf): Configures Gentoo's package manager settings to optimize for x86-64-v3 architecture, enables multi-core processing (2 jobs), strictly accepts free/binary-redistributable licenses, and enables the use of signed binary packages.
 
