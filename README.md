@@ -3,7 +3,7 @@ Yes let's create an easy install of Gentoo
 
 ## [Just with 19 steps](https://github.com/dpnpinto/Pintoo/blob/main/install_pintoo.sh)
 
-* Initialize and Prepare Disks: Enables exit-on-error and partitions the /dev/vda(change this if your device is another) drive into three sections: EFI (1GB, FAT32), Swap (4GB), and Linux Root (Remaining space, EXT4).
+* Initialize and Prepare Disks: Enables exit-on-error and partitions the /dev/vda (change if you use other device) drive into three sections: EFI (1GB, FAT32), Swap (4GB), and Linux Root (Remaining space, EXT4).
 
 * Mount Partitions: Mounts the newly created EXT4 root file system to /mnt/gentoo and the FAT32 EFI partition to /mnt/gentoo/efi.
 
