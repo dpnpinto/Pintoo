@@ -1,7 +1,7 @@
 # Pintoo Gentoo a la Pinto
 Yes let's create an easy install of Gentoo
 
-## Just 19 steps:
+## (Just 19 steps)[https://github.com/dpnpinto/Pintoo/blob/main/install_pintoo.sh]:
 
 * Initialize and Prepare Disks: Enables exit-on-error and partitions the /dev/vda drive into three sections: EFI (1GB, FAT32), Swap (4GB), and Linux Root (Remaining space, EXT4).
 
