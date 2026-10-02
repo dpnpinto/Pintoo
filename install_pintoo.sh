@@ -25,11 +25,13 @@ echo "=== 3. Synchronizing clock ==="
 chronyd -q
 
 echo "=== 4. Downloading and extracting Stage3 (AMD64 OpenRC) ==="
+# Go there
 cd /mnt/gentoo
-# The generic Stage3 link
-STAGE3_URL="https://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64-openrc/stage3-amd64-openrc-20260927T170058Z.tar.xz"
+# The generic Stage3 amd64+OpenRC link
+BASE_URL="https://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64-openrc"
+LATEST_FILE=$(curl -s "${BASE_URL}/latest-stage3-amd64-openrc.txt" | grep -v "^#" | awk '{print $1}')
+STAGE3_URL="${BASE_URL}/${LATEST_FILE}"
 wget $STAGE3_URL -O stage3.tar.xz
-
 # Extraction to keep owner and xattrs
 tar xpvf stage3.tar.xz --xattrs-include='*.*' --numeric-owner
 
