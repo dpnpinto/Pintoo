@@ -1,58 +1,47 @@
-# Pintoo
-Gentoo a la Pinto
+# Pintoo Gentoo a la Pinto
 Yes let's create an easy install of Gentoo
-PintoGentoo
-Steps:
-* 1- Descarregar do gentoo.org - Minimal Gentoo for AMD64
-* 2- Arrancar com o "Live CD"
-* 3- Escolher o teclado - pt
-* 4- Mudar o tamanho da fonte - setfont -d
-* 5- Mudar a password para a root - passwd root
-* 6- Arrancar com o servidor ssh - /etc/init.d/sshd start
-* 7- Ver o ip - ip a
-* 8- efetuar uma sessão remota - ssh root@ip
-* 9- Criar partições do tipo GPT
-* 10 - Utilizando cfdisk, primeira 1G tipo EFI System
-* 11 - Segunda 4G tipo swap
-* 12 - Terceira restante espaço deixar o tipo em Linux FileSystem
-* 13 - formatar a partição 1 como fat32 - mkfs.vfat -F32 /dev/sda1
-* 14 - formatar a partição 2 como swap - mkswap /dev/sda2
-* 15 - Ativar a swap -  swapon /dev/sda2
-* 16 - formatar a partição 3 com ext4 - mkfs.ext4 /dev/sda3
-* 17 - montar o sistema - mount -m /dev/sda3 /mnt/gentoo
-* 18 - sincronizar o relógio - chronyd -q
-* 18 - ir para dentro do sistema - cd /mnt/gentoo
-* 19 - descarregar o ficheiro tar com o sistema - links https://www.gentoo.org/downloads/mirrors/
-* wget https://distfiles.gentoo.org/releases/amd64/autobuilds/20260906T170102Z/stage3-amd64-openrc-20260906T170102Z.tar.xz
-* 20 - extrair a imagem com os atributos preservados - tar -xpvf file.tar.xz --xattrs-include=´.´ --numeric-owner
-* 21 - alterar o make.conf para instalar binários- cd etc/portage alteral make.conf
-* 22 - alterar o binrepos.conf - cd etc/portage/binrepos.conf alterar o gentoo.conf
-* 23 - verificar o PGP - getuto
-* 24 - voltar para a raiz e montar a partição EFI - cd e mount -m /dev/sda1 /mnt/gentoo/efi
-* 25 - gerar o ficheiro fstab - genfstab -U /mnt/gentoo/ > /mnt/gentoo/etc/fstab
-* 26 - Copiar as referencias de DNS para o nosso sistema - cp --dereference /etc/resolv.conf /mnt/gentoo/etc
-* 27 - Ir para dentro do sistema - arch-chroot /mnt/gentoo
-* 28 - Source o perfil - source /etc/profile
-* 29 - Ir para a pasta do utilizador - cd
-* 30 - Sincronizar o repositorio - emerge-webrsync
-* 31 - Vamos ver para selecionar um perfil - eselect profile list | less
-* 32 - vamos selecionar um perfil - eselect profile set 1
-* 33 - vamos finalmente instalar o Gentoo - emerge --ask --verbose --update --deep --changed-use --getbinpkg @world
-* 34 - vamos defenir a zona - ln -sf /usr/share/zoneinfo/Atlantic/Azores /etc/localtime
-* 35 - instalar um editor de texto em condições - emerge app-editors/vim
-* 36 - vamos gerar o local, primeiro editar e tirar o # do local para mim pt_PT - vim /etc/locale.gen
-* 37 - vamos gerar O locale - locale-gen
-* 38 - vamos atualziar a variavel do perfil - eselect locale list e eselect locale set 4
-* 39 - vamos atualizar o perfil - env-update && source /etc/profile
-* 40 - marcar a prompt para sabermos que estamos em chroot - export PS1="(Pintoo) ${PS1}"
-* 41 - instalar o firmware - emerge --ask sys-kernel/linux-firmware sys-firmware/sof-firmware
-* 42 - criar os pacotes que são relacionados com o sistema -  vim /etc/portage/package.use/system
-* 43 - adicionar o software - sys-kernel/installkernel dracut efistub
-* 44 - GRUB 
-... 
-...
-...
-* XX - O descrito mas agora em bash - wget https://raw.github.com/dpnpinto/Pintoo/main/install_pintoo.sh
+
+## Just 19 steps:
+
+* Initialize and Prepare Disks: Enables exit-on-error and partitions the /dev/vda drive into three sections: EFI (1GB, FAT32), Swap (4GB), and Linux Root (Remaining space, EXT4).
+
+* Mount Partitions: Mounts the newly created EXT4 root file system to /mnt/gentoo and the FAT32 EFI partition to /mnt/gentoo/efi.
+
+* Synchronize the Clock: Quickly synchronizes the system clock using chronyd to prevent SSL/download errors.
+
+* Download and Extract Stage3: Downloads the Gentoo Stage3 tarball (AMD64 with OpenRC) and extracts it into the root mount, preserving file owners and extended attributes.
+
+* Configure Portage (make.conf): Configures Gentoo's package manager settings to optimize for x86-64-v3 architecture, enables multi-core processing (2 jobs), strictly accepts free/binary-redistributable licenses, and enables the use of signed binary packages.
+
+* Configure Binary Repositories: Sets up /etc/portage/binrepos.conf to pull from Gentoo's official binary package servers, prioritizing the optimized x86-64-v3 repository.
+
+* Generate fstab: Uses genfstab to automatically create the file system table, ensuring partitions mount correctly on boot.
+
+* Copy DNS Configuration: Copies the host system's resolv.conf to the new environment so it can resolve web addresses during the rest of the installation.
+
+* Create the Chroot Script: Begins generating a secondary script (chroot_install.sh) inside /mnt/gentoo that will run the internal configuration steps.
+
+* Update Repositories & Select Profile (Inside Chroot): Synchronizes the Portage tree from the web (emerge-webrsync) and sets the system profile to the standard, stable AMD64 profile.
+
+* Install the Base System (Inside Chroot): Installs the core Gentoo system (@world set) using pre-compiled binary packages to save compilation time.
+
+* Configure Localization (Inside Chroot): Sets the system timezone to Atlantic/Azores, configures the system language/locale to Portuguese (pt_PT), generates the locale files, and reloads the environment variables.
+
+* Install Firmware and Kernel (Inside Chroot): Installs essential hardware firmware (including SOF audio firmware). It configures the package manager to accept the binary kernel (gentoo-kernel-bin), prepares installkernel to use dracut and grub, and installs the kernel.
+
+* Configure GRUB Bootloader (Inside Chroot): Installs grub and efibootmgr, installs the bootloader to the EFI partition under the ID "Pintoo", and generates the main GRUB configuration file.
+
+* Setup Hostname and Networking (Inside Chroot): Names the computer "Pintoo", creates the local /etc/hosts file, and installs/enables dhcpcd to automatically handle internet connections at boot.
+
+* Create Users and Passwords (Inside Chroot): Sets the root password to "pintoo", creates a new user named "pintoo" (adding them to administrative and media groups), and installs doas (a sudo alternative) to grant administrative rights to the wheel group.
+
+* Install Logging and Cron (Inside Chroot): Installs a system logger (sysklogd) and an NTP client (chrony), configuring both to start automatically with OpenRC.
+
+* Optimize OpenRC (Inside Chroot): Disables user-level service autostart and disables virtual terminals (TTYs) 3 through 6 in the inittab file to free up system resources.
+
+* Install Essential Software (Inside Chroot): Installs system monitoring and text editing tools: htop, fastfetch, and vim.
+
+* Finalize the Script: Closes the chroot script generation, makes the script executable (chmod +x), and prints instructions for the user to finally run arch-chroot to execute it.
 
 ### References:
 
