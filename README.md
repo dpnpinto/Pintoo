@@ -1,5 +1,5 @@
-# Pintoo Gentoo a la Pinto
-Yes let's create an easy install of Gentoo
+# Pintoo, Gentoo a la Pinto
+Yes, let's create an easy install of Gentoo
 
 ## [Just with 19 steps](https://github.com/dpnpinto/Pintoo/blob/main/install_pintoo.sh)
 
