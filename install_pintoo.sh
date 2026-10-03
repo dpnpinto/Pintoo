@@ -29,7 +29,7 @@ echo "=== 4. Downloading and extracting Stage3 (AMD64 OpenRC) ==="
 cd /mnt/gentoo
 # The generic Stage3 amd64+OpenRC link
 BASE_URL="https://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-amd64-openrc"
-LATEST_FILE=$(curl -s "${BASE_URL}/latest-stage3-amd64-openrc.txt" | grep -v "^#" | awk '{print $1}')
+LATEST_FILE=$(curl -s "${BASE_URL}/latest-stage3-amd64-openrc.txt" | grep -v "stage3-amd64" | awk '{print $1}')
 STAGE3_URL="${BASE_URL}/${LATEST_FILE}"
 wget $STAGE3_URL -O stage3.tar.xz
 # Extraction to keep owner and xattrs
