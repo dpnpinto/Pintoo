@@ -25,9 +25,10 @@ chronyd -q
 echo "=== 4. Descarregando e extraindo Stage3 (x86/i686 OpenRC) ==="
 cd /mnt/gentoo
 # O link do Stage3 genérico para 32-bit (i686)
-STAGE3_URL="https://distfiles.gentoo.org/releases/x86/autobuilds/current-stage3-i686-openrc/stage3-i686-openrc-20260920T170055Z.tar.xz"
+BASE_URL="https://distfiles.gentoo.org/releases/amd64/autobuilds/current-stage3-x32-openrc"
+LATEST_FILE=$(curl -s "${BASE_URL}/latest-stage3-x32-openrc.txt" | grep "stage3-amd64" | awk '{print $1}')
+STAGE3_URL="${BASE_URL}/${LATEST_FILE}"
 wget $STAGE3_URL -O stage3.tar.xz
-
 # Extração para manter dono e xattrs
 tar xpvf stage3.tar.xz --xattrs-include='*.*' --numeric-owner
 
