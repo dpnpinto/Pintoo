@@ -13,13 +13,11 @@ echo "=== 1. Preparando discos ==="
 sgdisk -Z -n 1:0:+2M -t 1:ef02 -c 1:"BIOS-boot" -n 2:0:+4G -t 2:8200 -c 2:"Swap" -n 3:0:0 -t 3:8300 -c 3:"Linux" /dev/sda
 mkfs.fat -F 32 /dev/sda1
 mkswap /dev/sda2
-swapon /dev/sda2
 mkfs.ext4 /dev/sda3  # EXT4
 
 echo "=== 2. Montando partições ==="
 mount /dev/sda3 /mnt/gentoo
-mkdir -p /mnt/gentoo/efi
-mount /dev/vda1 /mnt/gentoo/efi
+swapon /dev/sda2
 
 echo "=== 3. Sincronizando relógio ==="
 chronyd -q
