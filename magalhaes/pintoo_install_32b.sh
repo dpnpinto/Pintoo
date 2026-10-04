@@ -110,11 +110,11 @@ echo "virtual/dist-kernel ~x86" >> /etc/portage/package.accept_keywords/kernel
 emerge sys-kernel/gentoo-kernel-bin
 
 echo "=== 14. Configuração GRUB (Bootloader) ==="
-# Instalando o pacote do GRUB e efibootmgr
-emerge sys-boot/grub sys-boot/efibootmgr
+# Instalando apenas o pacote do GRUB
+emerge sys-boot/grub
 
-# Instalando e gerando o config do GRUB na partição /efi para 32-bit UEFI
-grub-install --target=i386-efi --efi-directory=/efi --bootloader-id=Pintoo
+# Instalando o GRUB no disco para BIOS e gerando a configuração
+grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "=== 15. Hostname e Rede ==="
