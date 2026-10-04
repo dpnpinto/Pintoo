@@ -10,14 +10,14 @@ echo "=== 1. Preparando discos ==="
 # /dev/vda2: Linux swap (4GB)
 # /dev/vda3: Linux filesystem (Restante)
 
-sgdisk -Z -n 1:0:+1G -t 1:ef00 -c 1:"EFI" -n 2:0:+4G -t 2:8200 -c 2:"Swap" -n 3:0:0 -t 3:8300 -c 3:"Linux" /dev/vda
-mkfs.fat -F 32 /dev/vda1
-mkswap /dev/vda2
-swapon /dev/vda2
-mkfs.ext4 /dev/vda3  # EXT4
+sgdisk -Z -n 1:0:+2M -t 1:ef02 -c 1:"BIOS-boot" -n 2:0:+4G -t 2:8200 -c 2:"Swap" -n 3:0:0 -t 3:8300 -c 3:"Linux" /dev/sda
+mkfs.fat -F 32 /dev/sda1
+mkswap /dev/sda2
+swapon /dev/sda2
+mkfs.ext4 /dev/sda3  # EXT4
 
 echo "=== 2. Montando partições ==="
-mount /dev/vda3 /mnt/gentoo
+mount /dev/sda3 /mnt/gentoo
 mkdir -p /mnt/gentoo/efi
 mount /dev/vda1 /mnt/gentoo/efi
 
