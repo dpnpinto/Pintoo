@@ -1,6 +1,8 @@
 # Pintoo, Gentoo a la Pinto
 Yes, let's create an easy install of Gentoo
 
+*[YouTube](https://youtu.be/WJpu2EqM2Xw?is=JWN5Ljn9Sy0ToPXh)
+
 ## [Just with 19 steps](https://github.com/dpnpinto/Pintoo/blob/main/install_pintoo.sh)
 
 * Initialize and Prepare Disks: Enables exit-on-error and partitions the /dev/vda (change if you use other device) drive into three sections: EFI (1GB, FAT32), Swap (4GB), and Linux Root (Remaining space, EXT4).
