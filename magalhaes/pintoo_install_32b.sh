@@ -119,10 +119,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "=== 15. Hostname e Rede ==="
 
-echo "Pintoo32" > /etc/hostname
+echo "Magalhaes32" > /etc/hostname
 cat << 'HOSTS' >> /etc/hosts
-127.0.0.1 Pintoo32 localhost
-::1       Pintoo32 localhost
+127.0.0.1 magalhaes localhost
+::1       magalhaes localhost
 HOSTS
 
 emerge net-misc/dhcpcd # utilizar dhcpcd
@@ -132,9 +132,9 @@ rc-update add dhcpcd default
 # rc-update add NetworkManager default
 
 echo "=== 16. Utilizadores (Senha padrão: password) ==="
-echo "root:pintoo" | chpasswd
-useradd -m -G wheel,audio,video -s /bin/bash pintoo
-echo "pintoo:pintoo" | chpasswd
+echo "root:magalhaes" | chpasswd
+useradd -m -G wheel,audio,video -s /bin/bash magalhaes
+echo "magalhaes:magalhaes" | chpasswd
 
 emerge app-admin/doas
 echo "permit persist :wheel" > /etc/doas.conf
